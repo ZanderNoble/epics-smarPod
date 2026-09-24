@@ -1,0 +1,20 @@
+# 文件路径：db/smarpod_substitutions.substitutions
+file "$(MOTOR)/db/asyn_motor.db"
+{
+pattern
+{P,        N,   M,       DTYP,         PORT,     ADDR,  DESC,          EGU, DIR,  VELO,  VBAS,  ACCL,  BDST,  BVEL,  BACC,  MRES,  PREC,  DHLM,  DLLM,  INIT}
+{B2:,      1,   "X",     "asynMotor",  SMARPOD,  0,     "Smarpod X轴",  mm,   Pos,  1,   0.01,  0.05,  0,     0.05,  0.02,  0.000001,  6,     0,     0,    ""}
+{B2:,      2,   "Y",     "asynMotor",  SMARPOD,  1,     "Smarpod Y轴",  mm,   Pos,  1,   0.01,  0.05,  0,     0.05,  0.02,  0.000001,  6,     0,     0,    ""}
+{B2:,      3,   "Z",     "asynMotor",  SMARPOD,  2,     "Smarpod Z轴",  mm,   Pos,  1,   0.01,  0.05,  0,     0.05,  0.02,  0.000001,  6,     0,     0,    ""}
+{B2:,      4,   "RX",    "asynMotor",  SMARPOD,  3,     "Smarpod RX轴", deg, Pos,  1.0,   0.1,   0.5,   0,     0.5,   0.2,   0.000001,   6,     0,     0,    ""}
+{B2:,      5,   "RY",    "asynMotor",  SMARPOD,  4,     "Smarpod RY轴", deg, Pos,  1.0,   0.1,   0.5,   0,     0.5,   0.2,   0.000001,   6,     0,     0,    ""}
+{B2:,      6,   "RZ",    "asynMotor",  SMARPOD,  5,     "Smarpod RZ轴", deg, Pos,  1.0,   0.1,   0.5,   0,     0.5,   0.2,   0.000001,   6,     0,     0,    ""}
+}
+
+
+file "$(TOP)/db/smarPod.db"
+{
+pattern
+{P,     PORT,       TIMEOUT}
+{B2:,   SMARPOD,    1.0}
+}

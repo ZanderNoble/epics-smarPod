@@ -1,0 +1,51 @@
+# 定义一个新的 ao 记录，作为输入
+record(ao, "$(P)$(D)") {
+    field(DESC, "New $(PIVOT_M)")
+    field(DTYP, "Soft Channel")  # 使用软通道
+    field(PREC, "5")
+    field(EGU,"$(EGU)")
+    field(FLNK, "$(P)$(D):Logic.PROC PP")  # 在 $(D) 处理完成后触发 $(D):Logic
+}
+
+# 定义一个 bi 记录，用于判断是否需要加负号
+record(bi, "$(P)$(D):NegOrPos") {
+    field(DESC, "Neg or Pos Flag")
+    field(ZNAM, "Pos")  # 0 表示 Pos
+    field(ONAM, "Neg")  # 1 表示 Neg
+    field(VAL, "$(Dir)")     # 默认值为 Pos
+    field(FLNK, "$(P)$(D):Logic.PROC PP")  # 在 NegOrPos 处理完成后触发 $(D):Logic
+}
+# 定义一个 calcout 记录，根据 NegOrPos 的值决定是否加负号
+record(calcout, "$(P)$(D):Logic") {
+    field(INPA, "$(P)$(D) CP")  # 输入链接到 $(D)
+    field(INPB, "$(P)$(D):NegOrPos CP")     # 输入链接到 NegOrPos
+    field(CALC, "B==1?-A:A")       # 如果 NegOrPos 为 Neg (1)，则加负号
+    field(OUT, "$(P)$(PIVOT_M) PP")       # 输出链接到 $(PIVOT_M)
+    field(PREC, "5")
+    field(SCAN, ".1 second")            # 设置为 Passive，通过 Forward Link 触发
+}
+
+# 定义最终的 ao 记录，用于输出到硬件
+#record(ao, "$(P)$(PIVOT_M)") {
+#    field(DESC, "$(PIVOT_M) Output")
+#    field(DTYP, "Soft Channel")  # 使用软通道
+#    field(EGU,"$(EGU)")
+#    field(VAL, "0")              # 设置初始值为 0
+#    field(PREC, "5")
+#}
+record(ao, "$(P)RB$(D)") {
+    field(DESC, "New $(PIVOT_M)")
+    field(DTYP, "Soft Channel")  # 使用软通道
+    field(PREC, "5")
+    field(EGU,"$(EGU)")
+    field(FLNK, "$(P)$(D):RBLogic.PROC PP")  # 在 $(D) 处理完成后触发 $(D):Logic
+}
+record(calcout, "$(P)$(D):RBLogic") {
+    field(INPA, "$(P)RB$(PIVOT_M) CP")  # 输入链接到 $(D)
+    field(INPB, "$(P)$(D):NegOrPos CP")     # 输入链接到 NegOrPos
+    field(CALC, "B==1?-A:A")       # 如果 NegOrPos 为 Neg (1)，则加负号
+    field(OUT, "$(P)RB$(D) PP")       # 输出链接到 $(PIVOT_M)
+    field(PREC, "5")
+    field(SCAN, ".1 second")            # 设置为 Passive，通过 Forward Link 触发
+}
+

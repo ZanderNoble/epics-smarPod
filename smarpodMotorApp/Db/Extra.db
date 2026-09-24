@@ -1,0 +1,70 @@
+# 旋转中心设置PV (输出记录)
+record(ao, "$(P)$(R)X_SET") {
+    field(DESC, "旋转中心X坐标设置 (m)")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),$(ADDR_X))")
+    field(VAL,  "0.0")
+    field(PREC, "6")
+    field(EGU,  "m")
+    field(HOPR, "1.0")
+    field(LOPR, "-1.0")
+}
+
+record(ao, "$(P)$(R)Y_SET") {
+    field(DESC, "旋转中心Y坐标设置 (m)")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),$(ADDR_Y))")
+    field(VAL,  "0.0")
+    field(PREC, "6")
+    field(EGU,  "m")
+    field(HOPR, "1.0")
+    field(LOPR, "-1.0")
+}
+
+record(ao, "$(P)$(R)Z_SET") {
+    field(DESC, "旋转中心Z坐标设置 (m)")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),$(ADDR_Z))")
+    field(VAL,  "0.015")
+    field(PREC, "6")
+    field(EGU,  "m")
+    field(HOPR, "1.0")
+    field(LOPR, "-1.0")
+    field(FLNK, "$(P)$(R)EXECUTE")
+}
+
+# 旋转中心获取PV (输入记录)
+record(ai, "$(P)$(R)X_GET") {
+    field(DESC, "旋转中心X坐标读取 (m)")
+    field(SCAN, "1 second")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(ADDR_X_GET))")
+    field(PREC, "6")
+    field(EGU,  "m")
+}
+
+record(ai, "$(P)$(R)Y_GET") {
+    field(DESC, "旋转中心Y坐标读取 (m)")
+    field(SCAN, "1 second")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(ADDR_Y_GET))")
+    field(PREC, "6")
+    field(EGU,  "m")
+}
+
+record(ai, "$(P)$(R)Z_GET") {
+    field(DESC, "旋转中心Z坐标读取 (m)")
+    field(SCAN, "1 second")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(ADDR_Z_GET))")
+    field(PREC, "6")
+    field(EGU,  "m")
+}
+
+# 执行设置触发记录
+record(calc, "$(P)$(R)EXECUTE") {
+    field(CALC, "1")
+    field(OUT,  "@asyn($(PORT),$(ADDR_EXEC)) PP")
+}
+
+

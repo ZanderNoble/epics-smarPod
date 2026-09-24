@@ -1,0 +1,497 @@
+# Smarpod设备信息PV模板
+# 1. 扫描到的设备列表（字符串）
+record(stringin, "$(P)ScanDevices") {
+    field(DTYP, "asynOctetRead")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))SCAN_DEVICES")
+    field(PINI, "YES")
+    field(SCAN, "10 second")
+    field(DESC, "扫描到的SmarPod设备列表")
+}
+
+# 2. 设备连接状态（0=断开，1=连接）
+record(bi, "$(P)ConnectStatus") {
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))CONNECT_STATUS")
+    field(ZNAM, "Disconnected")
+    field(ONAM, "Connected")
+    field(PINI, "YES")
+    field(SCAN, "1 second")
+    field(DESC, "设备连接状态")
+}
+# 5. Smarpod库版本号（字符串）
+record(stringin, "$(P)LibraryVersion") {
+    field(DTYP, "asynOctetRead")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))LIBRARY_VERSION")
+    field(PINI, "YES")
+    field(SCAN, "10 second")
+    field(DESC, "Smarpod DLL库版本号（x.y.z）")
+}
+
+# 6. 设备ID（整型）
+record(longin, "$(P)DeviceID") {
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))DEVICE_ID")
+    field(PINI, "YES")
+    field(SCAN, "1 second")
+    field(DESC, "SmarPod设备ID")
+}
+
+# 7. 配置的locator参数（字符串）
+record(stringin, "$(P)Locator") {
+    field(DTYP, "asynOctetRead")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))LOCATOR")
+    field(PINI, "YES")
+    field(SCAN, "10 second")
+    field(DESC, "配置文件中指定的locator参数")
+}
+
+# 8. 设备型号名称（如P-CLL:10115）
+record(stringin, "$(P)ModelName") {
+    field(DTYP, "asynOctetRead")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))MODEL_NAME")
+    field(PINI, "YES")
+    field(SCAN, "10 second")
+    field(DESC, "设备型号名称（含型号代码）")
+}
+
+# 9. Smarpod_GetSystemLocator返回值（字符串）
+record(stringin, "$(P)SystemLocator") {
+    field(DTYP, "asynOctetRead")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))SYSTEM_LOCATOR")
+    field(PINI, "YES")
+    field(SCAN, "10 second")
+    field(DESC, "Smarpod_GetSystemLocator接口返回值")
+}
+
+# 10. 设备型号代码（整型）
+record(longin, "$(P)ModelCode") {
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))MODEL_CODE")
+    field(PINI, "YES")
+    field(SCAN, "10 second")
+    field(DESC, "设备型号代码（如10115）")
+}
+
+record(bo, "$(P)Calibrate") {
+    field(DESC,"cmd calibration")
+    field(DTYP,"asynInt32")
+    field(VAL,0)
+    field(OUT, "@asyn($(PORT),0,$(TIMEOUT))CAL")
+}
+record(mbbi, "$(P)calibrateStatus") {
+    field(DESC,"calibrateStatus")
+    field(DTYP,"asynInt32")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(TWVL, "2")
+    field(ZRST, "No")
+    field(ONST, "Calibrating")
+    field(TWST, "Calibrated")
+    field(INP, "@asyn($(PORT),0,$(TIMEOUT))CALIBRATE_STATUS")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+}
+record(bo, "$(P)Reference") {
+    field(DESC,"cmd Reference")
+    field(DTYP,"asynInt32")
+    field(VAL,0)
+    field(OUT, "@asyn($(PORT),0,$(TIMEOUT))REFERENCE")
+}
+record(bo, "$(P)moveToZero") {
+    field(DESC,"cmd moveToZero")
+    field(DTYP,"asynInt32")
+    field(VAL,0)
+    field(OUT, "@asyn($(PORT),0,$(TIMEOUT))MOVE_TO_ZERO")
+}
+record(bo, "$(P)setToZero") {
+    field(DESC,"cmd moveToZero")
+    field(DTYP,"asynInt32")
+    field(VAL,0)
+    field(OUT, "@asyn($(PORT),0,$(TIMEOUT))SET_TO_ZERO")
+}
+record(ao, "$(P)holdTime") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))STOP_WITH_HOLDING_TIME")
+    field(VAL,  "-1")  
+    field(DRVL, "-1")
+    field(DRVH, "60000")
+    field(PINI, "YES")
+}
+record(bo, "$(P)stopHolding") {
+    field(DESC,"cmd stopHolding")
+    field(DTYP,"asynInt32")
+    field(VAL,1)
+    field(OUT, "@asyn($(PORT),0,$(TIMEOUT))STOP_AND_HOLDING")
+    field(PINI, "YES")
+}
+record(mbbi, "$(P)referenceStatus") {
+    field(DESC,"referenceStatus")
+    field(DTYP,"asynInt32")
+    field(ZRVL, "0")
+    field(ONVL, "2")
+    field(TWVL, "1")
+    field(ZRST, "No")
+    field(ONST, "Referencing")
+    field(TWST, "Referenced")
+    field(INP, "@asyn($(PORT),0,$(TIMEOUT))REFERENCE_STATUS")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+}
+# 参考参数配置
+# 参考点查找方法配置（MBBO类型）
+record(mbbo, "$(P)FREFMethod") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),$(TIMEOUT))REFERENCE_METHOD")
+    field(VAL,  "2")  # 默认ZSAFE模式
+    field(ZRVL, "0")
+    field(ZRST, "DEFAULT")
+    field(ONVL, "1")
+    field(ONST, "SEQUENTIAL")
+    field(TWVL, "2")
+    field(TWST, "ZSAFE")
+    field(THVL, "3")
+    field(THST, "XYSAFE")
+    field(PINI, "YES")
+}
+
+# Z轴参考方向配置（MBBO类型）
+record(mbbo, "$(P)FREFZDirection") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))REFERENCE_ZDIRECTION")
+    field(VAL,  "512")  # 默认NEGATIVE
+    field(ZRVL, "0")
+    field(ZRST, "DEFAULT")
+    field(ONVL, "256")
+    field(ONST, "POSITIVE")
+    field(TWVL, "512")
+    field(TWST, "NEGATIVE")
+    field(THVL, "4096")
+    field(THST, "POSITIVE+REVERSE")
+    field(FRVL, "4352")
+    field(FRST, "NEGATIVE+REVERSE")
+    field(PINI, "YES")
+}
+
+# X轴参考方向配置（MBBO类型）
+record(mbbo, "$(P)FREFXDirection") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))REFERENCE_XDIRECTION")
+    field(VAL,  "256")
+    field(ZRVL, "0")
+    field(ZRST, "DEFAULT")
+    field(ONVL, "256")
+    field(ONST, "POSITIVE")
+    field(TWVL, "512")
+    field(TWST, "NEGATIVE")
+    field(PINI, "YES")
+}
+
+# Y轴参考方向配置（MBBO类型）
+record(mbbo, "$(P)FREFYDirection") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))REFERENCE_YDIRECTION")
+    field(VAL,  "256")
+    field(ZRVL, "0")
+    field(ZRST, "DEFAULT")
+    field(ONVL, "256")
+    field(ONST, "POSITIVE")
+    field(TWVL, "512")
+    field(TWST, "NEGATIVE")
+    field(PINI, "YES")
+}
+record(ao, "$(P)FREFFrequency") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))REFERENCE_FREQUENCY")
+    field(VAL,  "2000")
+    field(DRVL, "100")
+    field(DRVH, "5000")
+    field(PREC, "0")
+    field(PINI, "YES")
+}
+record(mbbi, "$(P)moveStatus") {
+    field(DESC,"referenceStatus")
+    field(DTYP,"asynInt32")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(TWVL, "2")
+    field(THVL, "3")
+    field(FRVL, "4")
+    field(FVVL, "5")
+    field(ZRST, "stopped")
+    field(ONST, "holding")
+    field(TWST, "moving")
+    field(THST, "calibrating")
+    field(FRST, "referencing")
+    field(FVST,"standby")
+    field(INP, "@asyn($(PORT),0,$(TIMEOUT))MOVE_STATUS")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+}
+# 传感器模式配置（MBBO类型）
+record(mbbo, "$(P)SensorMode") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))SENSOR_MODE")
+    field(VAL,  "1")  # 默认启用传感器
+    field(ZRVL, "0")
+    field(ZRST, "DISABLED")
+    field(ONVL, "1")
+    field(ONST, "ENABLED")
+    field(TWVL, "2")
+    field(TWST, "POWERSAVE")
+    field(PINI, "YES")
+    #field(SCAN, "1 second")
+}
+# Pivot X坐标
+record(ao, "$(P)PivotX") {
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))PIVOT_X")
+    field(VAL,  "0.0")
+    field(EGU,  "mm")
+    field(PREC, "6")
+}
+# Pivot Y坐标
+record(ao, "$(P)PivotY") {
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))PIVOT_Y")
+    field(VAL,  "0.0")
+    field(EGU,  "mm")
+    field(PREC, "6")
+}
+
+# Pivot Z坐标
+record(ao, "$(P)PivotZ") {
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))PIVOT_Z")
+    field(VAL,  "0.0")
+    field(EGU,  "mm")
+    field(PREC, "6")
+}
+# 旋转坐标系参数获取
+record(ai, "$(P)PivotX_RBV") {
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))PIVOT_X")
+    field(EGU,  "mm")
+    field(PREC, "6")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+}
+record(ai, "$(P)PivotY_RBV") {
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))PIVOT_Y")
+    field(EGU,  "mm")
+    field(PREC, "6")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+}
+record(ai, "$(P)PivotZ_RBV") {
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))PIVOT_Z")
+    field(EGU,  "mm")
+    field(PREC, "6")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+}
+# 设置Pivot触发记录
+record(bo, "$(P)SetPivot") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))SET_PIVOT")
+    field(VAL,0)
+    field(ZNAM, "0")
+    field(ONAM, "设置")
+    field(PINI, "YES")
+}
+# Standby模式控制
+record(bo, "$(P)Standby") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))STANDBY")
+    field(ZNAM, "Idle")
+    field(ONAM, "Standby")
+    field(PINI, "YES")
+}
+
+# Standby状态显示
+record(mbbi, "$(P)StandbyStatus") {
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))STANDBY_STATUS")
+    field(ZRVL, "0")
+    field(ONVL, "2")
+    field(TWVL, "1")
+    field(ZRST, "Normal")
+    field(ONST, "Switching")
+    field(TWST, "Standby")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+}
+# 可达性状态读取（bi类型）
+record(bi, "$(P)PoseReachable") {
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))REACHABLE_STATUS")
+    field(ZNAM, "Reachable")  # 0:可达
+    field(ONAM, "Unreachable")    # 1:不可达
+    field(PINI, "YES")
+    field(SCAN, "1 second")     # 每秒扫描一次状态
+}
+
+
+# 坐标系参数设置
+record(ao, "$(P)CSYS_X") {
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))CSYS_X")
+    field(EGU,  "mm")
+    field(PREC, "6")
+    field(VAL,  "0.0")
+}
+record(ao, "$(P)CSYS_Y") {
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))CSYS_Y")
+    field(EGU,  "mm")
+    field(PREC, "6")
+    field(VAL,  "0.0")
+}
+
+record(ao, "$(P)CSYS_Z") {
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))CSYS_Z")
+    field(EGU,  "mm")
+    field(PREC, "6")
+    field(VAL,  "0.0")
+}
+
+record(ao, "$(P)CSYS_RX") {
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))CSYS_RX")
+    field(EGU,  "deg")
+    field(PREC, "6")
+    field(VAL,  "0.0")
+    field(HOPR, "45")
+    field(LOPR, "-45")
+}
+
+record(ao, "$(P)CSYS_RY") {
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))CSYS_RY")
+    field(EGU,  "deg")
+    field(PREC, "6")
+    field(VAL,  "0.0")
+    field(HOPR, "45")
+    field(LOPR, "-45")
+}
+
+record(ao, "$(P)CSYS_RZ") {
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))CSYS_RZ")
+    field(EGU,  "deg")
+    field(PREC, "6")
+    field(VAL,  "0.0")
+    field(HOPR, "45")
+    field(LOPR, "-45")
+}
+
+# 坐标系控制
+record(bo, "$(P)SetCSYS") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))SET_CSYS")
+    field(ZNAM, "Idle")
+    field(ONAM, "Set")
+    field(PINI, "YES")
+}
+
+record(bo, "$(P)GetCSYS") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))GET_CSYS")
+    field(ZNAM, "Idle")
+    field(ONAM, "Get")
+    field(PINI, "YES")
+}
+
+# 坐标系状态
+record(mbbi, "$(P)CSYS_Status") {
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))CSYS_STATUS")
+    field(ZRST, "Idle")
+    field(ZRVL, "0")
+    field(ONST, "Setting")
+    field(ONVL, "1")
+    field(TWST, "Getting")
+    field(TWVL, "2")
+    field(THST, "Error")
+    field(THVL, "-1")
+}
+# CSYS_X返回值
+record(ai, "$(P)CSYS_X_RBV") {
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))CSYS_X")
+    field(EGU,  "mm")
+    field(PREC, "6")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+}
+# CSYS_Y返回值
+record(ai, "$(P)CSYS_Y_RBV") {
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))CSYS_Y")
+    field(EGU,  "mm")
+    field(PREC, "6")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+}
+# CSYS_Z返回值
+record(ai, "$(P)CSYS_Z_RBV") {
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))CSYS_Z")
+    field(EGU,  "mm")
+    field(PREC, "6")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+}
+# CSYS_RX返回值
+record(ai, "$(P)CSYS_RX_RBV") {
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))CSYS_RX")
+    field(EGU,  "deg")
+    field(PREC, "6")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+}
+# CSYS_RY返回值
+record(ai, "$(P)CSYS_RY_RBV") {
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))CSYS_RY")
+    field(EGU,  "deg")
+    field(PREC, "6")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+}
+# CSYS_RZ返回值
+record(ai, "$(P)CSYS_RZ_RBV") {
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))CSYS_RZ")
+    field(EGU,  "deg")
+    field(PREC, "6")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+}
+# 最大频率设置（可写）
+record(ao, "$(P)MaxFrequency") {
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0,$(TIMEOUT))MAX_FREQUENCY")
+    field(VAL,  "3000")          # 默认值
+    field(DRVL, "1")             # 最小值
+    field(DRVH, "18500")         # 最大值
+    field(PREC, "0")             # 整数
+    field(EGU,  "Hz")            # 单位
+    field(DESC, "最大闭环频率设置")
+}
+
+# 最大频率读取（只读）
+record(ai, "$(P)MaxFrequency_RBV") {
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0,$(TIMEOUT))MAX_FREQUENCY")
+    field(VAL,  "3000")
+    field(PREC, "0")
+    field(EGU,  "Hz")
+    field(PINI, "YES")
+    field(SCAN, "I/O Intr")
+    field(DESC, "当前最大闭环频率")
+}
+

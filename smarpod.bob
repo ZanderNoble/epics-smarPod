@@ -1,0 +1,2981 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>CRL2a</name>
+  <macros>
+    <M1>X</M1>
+    <M2>Y</M2>
+    <M3>Z</M3>
+    <M4>RX</M4>
+    <M5>RY</M5>
+    <M6>RZ</M6>
+    <P>BL_ID19:smarPod:</P>
+  </macros>
+  <width>1447</width>
+  <height>1636</height>
+  <grid_step_x>4</grid_step_x>
+  <grid_step_y>4</grid_step_y>
+  <widget type="group" version="2.0.0">
+    <name>Axis 0</name>
+    <y>448</y>
+    <width>403</width>
+    <height>207</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>Label_6</name>
+      <text>Moving</text>
+      <y>121</y>
+      <width>60</width>
+      <height>40</height>
+      <font>
+        <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="115" green="255" blue="107">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="210" green="210" blue="210">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0==0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M1).DMOV</pv_name>
+        </rule>
+      </rules>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_2</name>
+      <pv_name>$(P)$(M1).TWR</pv_name>
+      <x>51</x>
+      <y>96</y>
+      <width>25</width>
+      <height>25</height>
+      <off_label>-</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>-</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_3</name>
+      <pv_name>$(P)$(M1).TWF</pv_name>
+      <x>277</x>
+      <y>96</y>
+      <width>25</width>
+      <height>25</height>
+      <off_label>+</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>+</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_2</name>
+      <pv_name>$(P)$(M1).RBV</pv_name>
+      <x>86</x>
+      <y>32</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_1</name>
+      <pv_name>$(P)$(M1).VAL</pv_name>
+      <x>84</x>
+      <y>64</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_1</name>
+      <pv_name>$(P)$(M1).STOP</pv_name>
+      <x>307</x>
+      <y>32</y>
+      <width>50</width>
+      <height>57</height>
+      <off_label>Stop</off_label>
+      <off_color>
+        <color red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <on_label>Stop</on_label>
+      <on_color>
+        <color red="150" green="0" blue="0">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_2</name>
+      <pv_name>$(P)$(M1).TWV</pv_name>
+      <x>85</x>
+      <y>96</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_3</name>
+      <text>ABS</text>
+      <y>64</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>REL</text>
+      <y>96</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>Choice Button</name>
+      <pv_name>$(P)$(M1).CNEN</pv_name>
+      <x>85</x>
+      <y>128</y>
+      <width>184</width>
+      <height>30</height>
+      <foreground_color>
+        <color name="Gray_14" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="Write_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <selected_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </selected_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>Item 1</item>
+        <item>Item 2</item>
+      </items>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Menu Button</name>
+      <actions>
+        <action type="open_display">
+          <file>motorx_all.opi</file>
+          <macros>
+            <M>$(M1)</M>
+          </macros>
+          <target>tab</target>
+          <description>All</description>
+        </action>
+      </actions>
+      <text></text>
+      <x>277</x>
+      <y>128</y>
+      <width>25</width>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P)$(M1).DESC</pv_name>
+      <x>86</x>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>Soft limit</text>
+      <x>282</x>
+      <width>54</width>
+      <height>16</height>
+      <foreground_color>
+        <color name="MINOR" red="255" green="128" blue="0">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M1).LVIO</pv_name>
+        </rule>
+      </rules>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle</name>
+      <macros>
+        <pv_name></pv_name>
+      </macros>
+      <x>51</x>
+      <y>32</y>
+      <width>25</width>
+      <height>57</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M1).LLS</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_1</name>
+      <macros>
+        <pv_name></pv_name>
+      </macros>
+      <x>277</x>
+      <y>32</y>
+      <width>25</width>
+      <height>57</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M1).HLS</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>RB</text>
+      <y>32</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>DESC</text>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Axis1</name>
+    <x>403</x>
+    <y>448</y>
+    <width>401</width>
+    <height>207</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>Label_219</name>
+      <text>Moving</text>
+      <y>121</y>
+      <width>60</width>
+      <height>40</height>
+      <font>
+        <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="115" green="255" blue="107">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="210" green="210" blue="210">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0==0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M2).DMOV</pv_name>
+        </rule>
+      </rules>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_148</name>
+      <pv_name>$(P)$(M2).TWR</pv_name>
+      <x>51</x>
+      <y>96</y>
+      <width>25</width>
+      <height>25</height>
+      <off_label>-</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>-</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_149</name>
+      <pv_name>$(P)$(M2).TWF</pv_name>
+      <x>275</x>
+      <y>96</y>
+      <width>25</width>
+      <height>25</height>
+      <off_label>+</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>+</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_59</name>
+      <pv_name>$(P)$(M2).RBV</pv_name>
+      <x>86</x>
+      <y>32</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_162</name>
+      <pv_name>$(P)$(M2).VAL</pv_name>
+      <x>84</x>
+      <y>64</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_150</name>
+      <pv_name>$(P)$(M2).STOP</pv_name>
+      <x>305</x>
+      <y>32</y>
+      <width>50</width>
+      <height>57</height>
+      <off_label>Stop</off_label>
+      <off_color>
+        <color red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <on_label>Stop</on_label>
+      <on_color>
+        <color red="150" green="0" blue="0">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_163</name>
+      <pv_name>$(P)$(M2).TWV</pv_name>
+      <x>85</x>
+      <y>96</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_220</name>
+      <text>ABS</text>
+      <y>64</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_221</name>
+      <text>REL</text>
+      <y>96</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>Choice Button_34</name>
+      <pv_name>$(P)$(M2).CNEN</pv_name>
+      <x>85</x>
+      <y>128</y>
+      <width>184</width>
+      <height>30</height>
+      <foreground_color>
+        <color name="Gray_14" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="Write_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <selected_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </selected_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>Item 1</item>
+        <item>Item 2</item>
+      </items>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Menu Button_34</name>
+      <actions>
+        <action type="open_display">
+          <file>motorx_all.opi</file>
+          <macros>
+            <M>$(M2)</M>
+          </macros>
+          <target>tab</target>
+          <description>All</description>
+        </action>
+      </actions>
+      <text></text>
+      <x>275</x>
+      <y>128</y>
+      <width>25</width>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_60</name>
+      <pv_name>$(P)$(M2).DESC</pv_name>
+      <x>86</x>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_222</name>
+      <text>Soft limit</text>
+      <x>285</x>
+      <width>54</width>
+      <height>16</height>
+      <foreground_color>
+        <color name="MINOR" red="255" green="128" blue="0">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M2).LVIO</pv_name>
+        </rule>
+      </rules>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_6</name>
+      <macros>
+        <pv_name></pv_name>
+      </macros>
+      <x>51</x>
+      <y>32</y>
+      <width>25</width>
+      <height>57</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M2).LLS</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_7</name>
+      <macros>
+        <pv_name></pv_name>
+      </macros>
+      <x>275</x>
+      <y>32</y>
+      <width>25</width>
+      <height>57</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M2).HLS</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_223</name>
+      <text>RB</text>
+      <y>32</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_224</name>
+      <text>DESC</text>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Axis2</name>
+    <x>804</x>
+    <y>448</y>
+    <width>406</width>
+    <height>207</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>Label_225</name>
+      <text>Moving</text>
+      <y>121</y>
+      <width>60</width>
+      <height>40</height>
+      <font>
+        <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="115" green="255" blue="107">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="210" green="210" blue="210">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0==0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M3).DMOV</pv_name>
+        </rule>
+      </rules>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_151</name>
+      <pv_name>$(P)$(M3).TWR</pv_name>
+      <x>51</x>
+      <y>96</y>
+      <width>25</width>
+      <height>25</height>
+      <off_label>-</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>-</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_152</name>
+      <pv_name>$(P)$(M3).TWF</pv_name>
+      <x>280</x>
+      <y>96</y>
+      <width>25</width>
+      <height>25</height>
+      <off_label>+</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>+</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_61</name>
+      <pv_name>$(P)$(M3).RBV</pv_name>
+      <x>86</x>
+      <y>32</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_164</name>
+      <pv_name>$(P)$(M3).VAL</pv_name>
+      <x>84</x>
+      <y>64</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_153</name>
+      <pv_name>$(P)$(M3).STOP</pv_name>
+      <x>310</x>
+      <y>32</y>
+      <width>50</width>
+      <height>57</height>
+      <off_label>Stop</off_label>
+      <off_color>
+        <color red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <on_label>Stop</on_label>
+      <on_color>
+        <color red="150" green="0" blue="0">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_165</name>
+      <pv_name>$(P)$(M3).TWV</pv_name>
+      <x>85</x>
+      <y>96</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_226</name>
+      <text>ABS</text>
+      <y>64</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_227</name>
+      <text>REL</text>
+      <y>96</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>Choice Button_35</name>
+      <pv_name>$(P)$(M3).CNEN</pv_name>
+      <x>85</x>
+      <y>128</y>
+      <width>184</width>
+      <height>30</height>
+      <foreground_color>
+        <color name="Gray_14" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="Write_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <selected_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </selected_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>Item 1</item>
+        <item>Item 2</item>
+      </items>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Menu Button_35</name>
+      <actions>
+        <action type="open_display">
+          <file>motorx_all.opi</file>
+          <macros>
+            <M>$(M3)</M>
+          </macros>
+          <target>tab</target>
+          <description>All</description>
+        </action>
+      </actions>
+      <text></text>
+      <x>280</x>
+      <y>128</y>
+      <width>25</width>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_62</name>
+      <pv_name>$(P)$(M3).DESC</pv_name>
+      <x>86</x>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_228</name>
+      <text>Soft limit</text>
+      <x>290</x>
+      <width>54</width>
+      <height>16</height>
+      <foreground_color>
+        <color name="MINOR" red="255" green="128" blue="0">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M3).LVIO</pv_name>
+        </rule>
+      </rules>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_8</name>
+      <macros>
+        <pv_name></pv_name>
+      </macros>
+      <x>51</x>
+      <y>32</y>
+      <width>25</width>
+      <height>57</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M3).LLS</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_9</name>
+      <macros>
+        <pv_name></pv_name>
+      </macros>
+      <x>280</x>
+      <y>32</y>
+      <width>25</width>
+      <height>57</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M3).HLS</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_229</name>
+      <text>RB</text>
+      <y>32</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_230</name>
+      <text>DESC</text>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Axis3</name>
+    <y>672</y>
+    <width>403</width>
+    <height>207</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>Label_231</name>
+      <text>Moving</text>
+      <y>121</y>
+      <width>60</width>
+      <height>40</height>
+      <font>
+        <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="115" green="255" blue="107">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="210" green="210" blue="210">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0==0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M4).DMOV</pv_name>
+        </rule>
+      </rules>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_154</name>
+      <pv_name>$(P)$(M4).TWR</pv_name>
+      <x>51</x>
+      <y>96</y>
+      <width>25</width>
+      <height>25</height>
+      <off_label>-</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>-</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_155</name>
+      <pv_name>$(P)$(M4).TWF</pv_name>
+      <x>277</x>
+      <y>96</y>
+      <width>25</width>
+      <height>25</height>
+      <off_label>+</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>+</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_63</name>
+      <pv_name>$(P)$(M4).RBV</pv_name>
+      <x>86</x>
+      <y>32</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_166</name>
+      <pv_name>$(P)$(M4).VAL</pv_name>
+      <x>84</x>
+      <y>64</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_156</name>
+      <pv_name>$(P)$(M4).STOP</pv_name>
+      <x>307</x>
+      <y>32</y>
+      <width>50</width>
+      <height>57</height>
+      <off_label>Stop</off_label>
+      <off_color>
+        <color red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <on_label>Stop</on_label>
+      <on_color>
+        <color red="150" green="0" blue="0">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_167</name>
+      <pv_name>$(P)$(M4).TWV</pv_name>
+      <x>85</x>
+      <y>96</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_232</name>
+      <text>ABS</text>
+      <y>64</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_233</name>
+      <text>REL</text>
+      <y>96</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>Choice Button_36</name>
+      <pv_name>$(P)$(M4).CNEN</pv_name>
+      <x>85</x>
+      <y>128</y>
+      <width>184</width>
+      <height>30</height>
+      <foreground_color>
+        <color name="Gray_14" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="Write_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <selected_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </selected_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>Item 1</item>
+        <item>Item 2</item>
+      </items>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Menu Button_36</name>
+      <actions>
+        <action type="open_display">
+          <file>motorx_all.opi</file>
+          <macros>
+            <M>$(M4)</M>
+          </macros>
+          <target>tab</target>
+          <description>All</description>
+        </action>
+      </actions>
+      <text></text>
+      <x>277</x>
+      <y>128</y>
+      <width>25</width>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_64</name>
+      <pv_name>$(P)$(M4).DESC</pv_name>
+      <x>86</x>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_234</name>
+      <text>Soft limit</text>
+      <x>287</x>
+      <width>54</width>
+      <height>16</height>
+      <foreground_color>
+        <color name="MINOR" red="255" green="128" blue="0">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M4).LVIO</pv_name>
+        </rule>
+      </rules>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_10</name>
+      <macros>
+        <pv_name></pv_name>
+      </macros>
+      <x>51</x>
+      <y>32</y>
+      <width>25</width>
+      <height>57</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M4).LLS</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_11</name>
+      <macros>
+        <pv_name></pv_name>
+      </macros>
+      <x>277</x>
+      <y>32</y>
+      <width>25</width>
+      <height>57</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M4).HLS</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_235</name>
+      <text>RB</text>
+      <y>32</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_236</name>
+      <text>DESC</text>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Axis 4</name>
+    <x>403</x>
+    <y>672</y>
+    <width>403</width>
+    <height>207</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>Label_7</name>
+      <text>Moving</text>
+      <y>121</y>
+      <width>60</width>
+      <height>40</height>
+      <font>
+        <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="115" green="255" blue="107">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="210" green="210" blue="210">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0==0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M5).DMOV</pv_name>
+        </rule>
+      </rules>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_4</name>
+      <pv_name>$(P)$(M5).TWR</pv_name>
+      <x>51</x>
+      <y>96</y>
+      <width>25</width>
+      <height>25</height>
+      <off_label>-</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>-</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_5</name>
+      <pv_name>$(P)$(M5).TWF</pv_name>
+      <x>277</x>
+      <y>96</y>
+      <width>25</width>
+      <height>25</height>
+      <off_label>+</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>+</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_3</name>
+      <pv_name>$(P)$(M5).RBV</pv_name>
+      <x>86</x>
+      <y>32</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_3</name>
+      <pv_name>$(P)$(M5).VAL</pv_name>
+      <x>84</x>
+      <y>64</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_6</name>
+      <pv_name>$(P)$(M5).STOP</pv_name>
+      <x>307</x>
+      <y>32</y>
+      <width>50</width>
+      <height>57</height>
+      <off_label>Stop</off_label>
+      <off_color>
+        <color red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <on_label>Stop</on_label>
+      <on_color>
+        <color red="150" green="0" blue="0">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_4</name>
+      <pv_name>$(P)$(M5).TWV</pv_name>
+      <x>85</x>
+      <y>96</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_8</name>
+      <text>ABS</text>
+      <y>64</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_9</name>
+      <text>REL</text>
+      <y>96</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>Choice Button_1</name>
+      <pv_name>$(P)$(M5).CNEN</pv_name>
+      <x>85</x>
+      <y>128</y>
+      <width>184</width>
+      <height>30</height>
+      <foreground_color>
+        <color name="Gray_14" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="Write_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <selected_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </selected_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>Item 1</item>
+        <item>Item 2</item>
+      </items>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Menu Button_1</name>
+      <actions>
+        <action type="open_display">
+          <file>PI_Hexapod_All.bob</file>
+          <macros>
+            <M>$(M5)</M>
+          </macros>
+          <target>tab</target>
+          <description>All</description>
+        </action>
+      </actions>
+      <text></text>
+      <x>277</x>
+      <y>128</y>
+      <width>25</width>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_4</name>
+      <pv_name>$(P)$(M5).DESC</pv_name>
+      <x>86</x>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_10</name>
+      <text>Soft limit</text>
+      <x>282</x>
+      <width>54</width>
+      <height>16</height>
+      <foreground_color>
+        <color name="MINOR" red="255" green="128" blue="0">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M5).LVIO</pv_name>
+        </rule>
+      </rules>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_2</name>
+      <macros>
+        <pv_name></pv_name>
+      </macros>
+      <x>51</x>
+      <y>32</y>
+      <width>25</width>
+      <height>57</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M5).LLS</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_3</name>
+      <macros>
+        <pv_name></pv_name>
+      </macros>
+      <x>277</x>
+      <y>32</y>
+      <width>25</width>
+      <height>57</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M5).HLS</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_11</name>
+      <text>RB</text>
+      <y>32</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_12</name>
+      <text>DESC</text>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Axis5</name>
+    <x>806</x>
+    <y>672</y>
+    <width>401</width>
+    <height>207</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>Label_237</name>
+      <text>Moving</text>
+      <y>121</y>
+      <width>60</width>
+      <height>40</height>
+      <font>
+        <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="115" green="255" blue="107">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="210" green="210" blue="210">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0==0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0==0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M6).DMOV</pv_name>
+        </rule>
+      </rules>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_157</name>
+      <pv_name>$(P)$(M6).TWR</pv_name>
+      <x>51</x>
+      <y>96</y>
+      <width>25</width>
+      <height>25</height>
+      <off_label>-</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>-</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_158</name>
+      <pv_name>$(P)$(M6).TWF</pv_name>
+      <x>275</x>
+      <y>96</y>
+      <width>25</width>
+      <height>25</height>
+      <off_label>+</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>+</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_65</name>
+      <pv_name>$(P)$(M6).RBV</pv_name>
+      <x>86</x>
+      <y>32</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_168</name>
+      <pv_name>$(P)$(M6).VAL</pv_name>
+      <x>84</x>
+      <y>64</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_159</name>
+      <pv_name>$(P)$(M6).STOP</pv_name>
+      <x>305</x>
+      <y>32</y>
+      <width>50</width>
+      <height>57</height>
+      <off_label>Stop</off_label>
+      <off_color>
+        <color red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <on_label>Stop</on_label>
+      <on_color>
+        <color red="150" green="0" blue="0">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_169</name>
+      <pv_name>$(P)$(M6).TWV</pv_name>
+      <x>85</x>
+      <y>96</y>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_238</name>
+      <text>ABS</text>
+      <y>64</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_239</name>
+      <text>REL</text>
+      <y>96</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>Choice Button_37</name>
+      <pv_name>$(P)$(M6).CNEN</pv_name>
+      <x>85</x>
+      <y>128</y>
+      <width>184</width>
+      <height>30</height>
+      <foreground_color>
+        <color name="Gray_14" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="Write_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <selected_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </selected_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>Item 1</item>
+        <item>Item 2</item>
+      </items>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Menu Button_37</name>
+      <actions>
+        <action type="open_display">
+          <file>PI_Hexapod_All.bob</file>
+          <macros>
+            <M>$(M5)</M>
+          </macros>
+          <target>tab</target>
+          <description>All</description>
+        </action>
+      </actions>
+      <text></text>
+      <x>275</x>
+      <y>128</y>
+      <width>25</width>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_66</name>
+      <pv_name>$(P)$(M6).DESC</pv_name>
+      <x>86</x>
+      <width>184</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_240</name>
+      <text>Soft limit</text>
+      <x>285</x>
+      <width>54</width>
+      <height>16</height>
+      <foreground_color>
+        <color name="MINOR" red="255" green="128" blue="0">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M6).LVIO</pv_name>
+        </rule>
+      </rules>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_12</name>
+      <macros>
+        <pv_name></pv_name>
+      </macros>
+      <x>51</x>
+      <y>32</y>
+      <width>25</width>
+      <height>57</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M6).LLS</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Rectangle_13</name>
+      <macros>
+        <pv_name></pv_name>
+      </macros>
+      <x>275</x>
+      <y>32</y>
+      <width>25</width>
+      <height>57</height>
+      <line_width>0</line_width>
+      <line_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </line_color>
+      <actions>
+      </actions>
+      <rules>
+        <rule name="Visibility" prop_id="visible" out_exp="false">
+          <exp bool_exp="pv0!=0">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="!(pv0!=0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(M6).HLS</pv_name>
+        </rule>
+      </rules>
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_241</name>
+      <text>RB</text>
+      <y>32</y>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_242</name>
+      <text>DESC</text>
+      <width>50</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+    </widget>
+  </widget>
+  <widget type="multi_state_led" version="2.0.0">
+    <name>LED (Multi State)</name>
+    <pv_name>$(P)referenceStatus</pv_name>
+    <x>1148</x>
+    <y>247</y>
+    <width>30</width>
+    <height>30</height>
+    <states>
+      <state>
+        <value>0</value>
+        <label></label>
+        <color>
+          <color name="STOP" red="255" green="0" blue="0">
+          </color>
+        </color>
+      </state>
+      <state>
+        <value>1</value>
+        <label></label>
+        <color>
+          <color name="MINOR" red="255" green="128" blue="0">
+          </color>
+        </color>
+      </state>
+      <state>
+        <value>2</value>
+        <label></label>
+        <color>
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </color>
+      </state>
+    </states>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)Reference</pv_name>
+    <text>Reference</text>
+    <x>1038</x>
+    <y>247</y>
+    <height>28</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)Calibrate</pv_name>
+    <text>Calibrate</text>
+    <x>1038</x>
+    <y>287</y>
+    <height>28</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="multi_state_led" version="2.0.0">
+    <name>LED (Multi State)_1</name>
+    <pv_name>$(P)calibrateStatus</pv_name>
+    <x>1148</x>
+    <y>287</y>
+    <width>30</width>
+    <height>30</height>
+    <states>
+      <state>
+        <value>0</value>
+        <label></label>
+        <color>
+          <color name="STOP" red="255" green="0" blue="0">
+          </color>
+        </color>
+      </state>
+      <state>
+        <value>1</value>
+        <label></label>
+        <color>
+          <color name="MINOR" red="255" green="128" blue="0">
+          </color>
+        </color>
+      </state>
+      <state>
+        <value>2</value>
+        <label></label>
+        <color>
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </color>
+      </state>
+    </states>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+    </actions>
+    <pv_name>$(P)moveToZero</pv_name>
+    <text>moveToZero</text>
+    <x>1038</x>
+    <y>331</y>
+    <height>28</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>PIVOT_1</name>
+    <y>879</y>
+    <width>480</width>
+    <height>220</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>Label_273</name>
+      <text>PIVOT_X</text>
+      <y>16</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="18.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_179</name>
+      <pv_name>$(P)PivotX</pv_name>
+      <x>100</x>
+      <y>16</y>
+      <width>155</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_274</name>
+      <text>PIVOT_Y</text>
+      <y>59</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="18.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_182</name>
+      <pv_name>$(P)PivotY</pv_name>
+      <x>100</x>
+      <y>59</y>
+      <width>155</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_275</name>
+      <text>PIVOT_Z</text>
+      <y>104</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="18.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_183</name>
+      <pv_name>$(P)PivotZ</pv_name>
+      <x>100</x>
+      <y>104</y>
+      <width>155</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_82</name>
+      <pv_name>$(P)PivotX_RBV</pv_name>
+      <x>284</x>
+      <y>16</y>
+      <width>155</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_83</name>
+      <pv_name>$(P)PivotY_RBV</pv_name>
+      <x>284</x>
+      <y>59</y>
+      <width>155</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_84</name>
+      <pv_name>$(P)PivotZ_RBV</pv_name>
+      <x>284</x>
+      <y>104</y>
+      <width>155</width>
+      <height>25</height>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_4</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+          <description>WritePV</description>
+        </action>
+      </actions>
+      <pv_name>$(P)SetPivot</pv_name>
+      <text>SetPivot</text>
+      <x>100</x>
+      <y>147</y>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_1</name>
+    <pv_name>$(P)PoseReachable</pv_name>
+    <x>1148</x>
+    <y>204</y>
+    <width>30</width>
+    <height>30</height>
+    <off_color>
+      <color name="OK" red="0" green="255" blue="0">
+      </color>
+    </off_color>
+    <on_color>
+      <color name="STOP" red="255" green="0" blue="0">
+      </color>
+    </on_color>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>CoordinateSystem</name>
+    <x>549</x>
+    <y>104</y>
+    <width>481</width>
+    <height>328</height>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>Label_279</name>
+      <text>CSYS_X</text>
+      <y>11</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="18.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_184</name>
+      <pv_name>$(P)CSYS_X</pv_name>
+      <x>92</x>
+      <y>11</y>
+      <width>169</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_280</name>
+      <text>CSYS_Y</text>
+      <y>54</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="18.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_185</name>
+      <pv_name>$(P)CSYS_Y</pv_name>
+      <x>92</x>
+      <y>54</y>
+      <width>169</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_281</name>
+      <text>CSYS_Z</text>
+      <y>99</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="18.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_186</name>
+      <pv_name>$(P)CSYS_Z</pv_name>
+      <x>92</x>
+      <y>99</y>
+      <width>169</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_282</name>
+      <text>CSYS_RX</text>
+      <y>135</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="18.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_187</name>
+      <pv_name>$(P)CSYS_RX</pv_name>
+      <x>92</x>
+      <y>135</y>
+      <width>169</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_283</name>
+      <text>CSYS_RY</text>
+      <y>178</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="18.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_188</name>
+      <pv_name>$(P)CSYS_RY</pv_name>
+      <x>92</x>
+      <y>178</y>
+      <width>169</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_284</name>
+      <text>CSYS_RZ</text>
+      <y>223</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="18.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_189</name>
+      <pv_name>$(P)CSYS_RZ</pv_name>
+      <x>92</x>
+      <y>223</y>
+      <width>169</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="20.0">
+        </font>
+      </font>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_6</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+          <description>WritePV</description>
+        </action>
+      </actions>
+      <pv_name>$(P)SetCSYS</pv_name>
+      <text>SetCSYS</text>
+      <x>92</x>
+      <y>255</y>
+      <width>169</width>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_7</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+          <description>WritePV</description>
+        </action>
+      </actions>
+      <pv_name>$(P)GetCSYS</pv_name>
+      <text>GetCSYS</text>
+      <x>281</x>
+      <y>255</y>
+      <width>155</width>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="multi_state_led" version="2.0.0">
+      <name>LED (Multi State)_4</name>
+      <pv_name>$(P)StandbyStatus</pv_name>
+      <x>47</x>
+      <y>255</y>
+      <states>
+        <state>
+          <value>0</value>
+          <label>Idle</label>
+          <color>
+            <color name="Button_Background" red="210" green="210" blue="210">
+            </color>
+          </color>
+        </state>
+        <state>
+          <value>1</value>
+          <label>Setting</label>
+          <color>
+            <color name="MINOR" red="255" green="128" blue="0">
+            </color>
+          </color>
+        </state>
+        <state>
+          <value>2</value>
+          <label>Getting</label>
+          <color>
+            <color name="OK" red="0" green="255" blue="0">
+            </color>
+          </color>
+        </state>
+        <state>
+          <value>3</value>
+          <label>Error</label>
+          <color>
+            <color name="STOP" red="255" green="0" blue="0">
+            </color>
+          </color>
+        </state>
+      </states>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_85</name>
+      <pv_name>$(P)CSYS_X_RBV</pv_name>
+      <x>281</x>
+      <y>11</y>
+      <width>155</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_86</name>
+      <pv_name>$(P)CSYS_Y_RBV</pv_name>
+      <x>281</x>
+      <y>54</y>
+      <width>155</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_87</name>
+      <pv_name>$(P)CSYS_Z_RBV</pv_name>
+      <x>281</x>
+      <y>99</y>
+      <width>155</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_88</name>
+      <pv_name>$(P)CSYS_RY_RBV</pv_name>
+      <x>281</x>
+      <y>178</y>
+      <width>155</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_89</name>
+      <pv_name>$(P)CSYS_RX_RBV</pv_name>
+      <x>281</x>
+      <y>135</y>
+      <width>155</width>
+      <height>25</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_90</name>
+      <pv_name>$(P)CSYS_RZ_RBV</pv_name>
+      <x>281</x>
+      <y>223</y>
+      <width>155</width>
+      <height>25</height>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_306</name>
+    <text>PoseReachable</text>
+    <x>1038</x>
+    <y>208</y>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>Device</name>
+    <y>104</y>
+    <width>537</width>
+    <height>164</height>
+    <transparent>true</transparent>
+    <widget type="led" version="2.0.0">
+      <name>LED_2</name>
+      <pv_name>$(P)ConnectStatus</pv_name>
+      <x>419</x>
+      <y>54</y>
+      <width>62</width>
+      <height>16</height>
+      <square>true</square>
+      <labels_from_pv>true</labels_from_pv>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_92</name>
+      <pv_name>$(P)LibraryVersion</pv_name>
+      <x>401</x>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_93</name>
+      <pv_name>$(P)DeviceID</pv_name>
+      <x>401</x>
+      <y>27</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_94</name>
+      <pv_name>$(P)ModelName</pv_name>
+      <x>104</x>
+      <y>81</y>
+      <width>170</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_95</name>
+      <pv_name>$(P)Locator</pv_name>
+      <x>104</x>
+      <y>27</y>
+      <width>170</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_96</name>
+      <pv_name>$(P)SystemLocator</pv_name>
+      <x>104</x>
+      <y>54</y>
+      <width>170</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_97</name>
+      <pv_name>$(P)ModelCode</pv_name>
+      <x>104</x>
+      <y>108</y>
+      <width>170</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_285</name>
+      <text>ScanDevices</text>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_286</name>
+      <text>DllLibraryVersion</text>
+      <x>289</x>
+      <width>112</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_287</name>
+      <text>TheoryDevice</text>
+      <y>27</y>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_288</name>
+      <text>VirtualDevice</text>
+      <y>54</y>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_289</name>
+      <text>ModelCode</text>
+      <y>108</y>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_290</name>
+      <text>ModelName</text>
+      <y>81</y>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_291</name>
+      <text>DeviceID</text>
+      <x>289</x>
+      <y>27</y>
+      <width>112</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_292</name>
+      <text>ConnectStatus</text>
+      <x>289</x>
+      <y>54</y>
+      <width>112</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_293</name>
+      <text>moveStatus</text>
+      <x>289</x>
+      <y>81</y>
+      <width>112</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_294</name>
+      <text>StandbyStatus</text>
+      <x>289</x>
+      <y>108</y>
+      <width>112</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>$(P)moveStatus</pv_name>
+      <x>401</x>
+      <y>81</y>
+    </widget>
+    <widget type="multi_state_led" version="2.0.0">
+      <name>LED (Multi State)_3</name>
+      <pv_name>$(P)StandbyStatus</pv_name>
+      <x>419</x>
+      <y>108</y>
+      <width>62</width>
+      <square>true</square>
+      <states>
+        <state>
+          <value>0</value>
+          <label>No</label>
+          <color>
+            <color name="STOP" red="255" green="0" blue="0">
+            </color>
+          </color>
+        </state>
+        <state>
+          <value>1</value>
+          <label>SwitchStandby</label>
+          <color>
+            <color name="MINOR" red="255" green="128" blue="0">
+            </color>
+          </color>
+        </state>
+        <state>
+          <value>2</value>
+          <label>StandbyModel</label>
+          <color>
+            <color name="OK" red="0" green="255" blue="0">
+            </color>
+          </color>
+        </state>
+      </states>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_91</name>
+      <pv_name>$(P)ScanDevices</pv_name>
+      <x>104</x>
+      <width>170</width>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>SetDevice</name>
+    <y>268</y>
+    <width>537</width>
+    <height>164</height>
+    <transparent>true</transparent>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_3</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+          <description>WritePV</description>
+        </action>
+      </actions>
+      <pv_name>$(P)setToZero</pv_name>
+      <text>setToZero</text>
+      <x>397</x>
+      <y>108</y>
+      <height>20</height>
+      <tooltip>$(actions)</tooltip>
+      <show_confirm_dialog>true</show_confirm_dialog>
+      <password>123456</password>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box_1</name>
+      <pv_name>$(P)FREFMethod</pv_name>
+      <x>109</x>
+      <width>165</width>
+      <height>20</height>
+      <enabled>false</enabled>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box_2</name>
+      <pv_name>$(P)FREFXDirection</pv_name>
+      <x>109</x>
+      <y>27</y>
+      <width>165</width>
+      <height>20</height>
+      <enabled>false</enabled>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box_3</name>
+      <pv_name>$(P)FREFYDirection</pv_name>
+      <x>109</x>
+      <y>54</y>
+      <width>165</width>
+      <height>20</height>
+      <enabled>false</enabled>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box_4</name>
+      <pv_name>$(P)FREFZDirection</pv_name>
+      <x>109</x>
+      <y>81</y>
+      <width>165</width>
+      <height>20</height>
+      <enabled>false</enabled>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_5</name>
+      <pv_name>$(P)FREFFrequency</pv_name>
+      <x>397</x>
+      <enabled>false</enabled>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box_5</name>
+      <pv_name>$(P)SensorMode</pv_name>
+      <x>108</x>
+      <y>108</y>
+      <width>165</width>
+      <height>20</height>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_5</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+          <description>WritePV</description>
+        </action>
+      </actions>
+      <pv_name>$(P)Standby</pv_name>
+      <text>SetStandby</text>
+      <x>397</x>
+      <y>81</y>
+      <height>20</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_296</name>
+      <text>FREFMethod</text>
+      <width>109</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_297</name>
+      <text>FREFXDirection</text>
+      <y>27</y>
+      <width>109</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_298</name>
+      <text>FREFYDirection</text>
+      <y>54</y>
+      <width>109</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_299</name>
+      <text>FREFZDirection</text>
+      <y>81</y>
+      <width>109</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_192</name>
+      <pv_name>$(P)holdTime</pv_name>
+      <x>397</x>
+      <y>29</y>
+      <enabled>false</enabled>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_301</name>
+      <text>FREFFrequency</text>
+      <x>289</x>
+      <width>108</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_302</name>
+      <text>SensorMode</text>
+      <y>108</y>
+      <width>108</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_305</name>
+      <text>holdTime</text>
+      <x>289</x>
+      <y>27</y>
+      <width>88</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_8</name>
+      <pv_name>$(P)stopHolding</pv_name>
+      <x>397</x>
+      <y>53</y>
+      <height>20</height>
+      <labels_from_pv>true</labels_from_pv>
+      <enabled>false</enabled>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_307</name>
+      <text>stopHolding</text>
+      <x>289</x>
+      <y>54</y>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_308</name>
+    <text>smarPod </text>
+    <x>109</x>
+    <y>20</y>
+    <width>899</width>
+    <height>76</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="32.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>MaxFrequency</name>
+    <x>1020</x>
+    <y>104</y>
+    <width>136</width>
+    <height>100</height>
+    <transparent>true</transparent>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_193</name>
+      <pv_name>$(P)MaxFrequency</pv_name>
+      <y>26</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_309</name>
+      <text>MaxFrequency:</text>
+      <y>6</y>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_98</name>
+      <pv_name>$(P)MaxFrequency_RBV</pv_name>
+      <y>50</y>
+    </widget>
+  </widget>
+</display>

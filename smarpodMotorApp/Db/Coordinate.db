@@ -1,0 +1,202 @@
+# 坐标系统设置PV
+record(ao, "$(P)$(R)CS_X_SET") {
+    field(DESC, "坐标系统X设置 (m)")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),$(CS_X_SET_INDEX))")
+    field(VAL,  "0.0")
+    field(PREC, "6")
+    field(EGU,  "m")
+}
+
+record(ao, "$(P)$(R)CS_Y_SET") {
+    field(DESC, "坐标系统Y设置 (m)")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),$(CS_Y_SET_INDEX))")
+    field(VAL,  "0.0")
+    field(PREC, "6")
+    field(EGU,  "m")
+}
+
+record(ao, "$(P)$(R)CS_Z_SET") {
+    field(DESC, "坐标系统Z设置 (m)")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),$(CS_Z_SET_INDEX))")
+    field(VAL,  "0.015")
+    field(PREC, "6")
+    field(EGU,  "m")
+}
+
+record(ao, "$(P)$(R)CS_RX_SET") {
+    field(DESC, "坐标系统Rx设置 (°)")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),$(CS_RX_SET_INDEX))")
+    field(VAL,  "0.0")
+    field(PREC, "2")
+    field(EGU,  "deg")
+    field(HOPR, "45")
+    field(LOPR, "-45")
+}
+
+record(ao, "$(P)$(R)CS_RY_SET") {
+    field(DESC, "坐标系统Ry设置 (°)")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),$(CS_RY_SET_INDEX))")
+    field(VAL,  "0.0")
+    field(PREC, "2")
+    field(EGU,  "deg")
+    field(HOPR, "45")
+    field(LOPR, "-45")
+}
+
+record(ao, "$(P)$(R)CS_RZ_SET") {
+    field(DESC, "坐标系统Rz设置 (°)")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),$(CS_RZ_SET_INDEX))")
+    field(VAL,  "0.0")
+    field(PREC, "2")
+    field(EGU,  "deg")
+    field(HOPR, "45")
+    field(LOPR, "-45")
+}
+
+# 坐标系统获取PV
+record(ai, "$(P)$(R)CS_X_GET") {
+    field(DESC, "坐标系统X读取 (m)")
+    field(SCAN, "1 second")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(CS_X_GET_INDEX))")
+    field(PREC, "6")
+    field(EGU,  "m")
+}
+
+record(ai, "$(P)$(R)CS_Y_GET") {
+    field(DESC, "坐标系统Y读取 (m)")
+    field(SCAN, "1 second")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(CS_Y_GET_INDEX))")
+    field(PREC, "6")
+    field(EGU,  "m")
+}
+
+record(ai, "$(P)$(R)CS_Z_GET") {
+    field(DESC, "坐标系统Z读取 (m)")
+    field(SCAN, "1 second")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(CS_Z_GET_INDEX))")
+    field(PREC, "6")
+    field(EGU,  "m")
+}
+
+record(ai, "$(P)$(R)CS_RX_GET") {
+    field(DESC, "坐标系统Rx读取 (°)")
+    field(SCAN, "1 second")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(CS_RX_GET_INDEX))")
+    field(PREC, "2")
+    field(EGU,  "deg")
+}
+
+record(ai, "$(P)$(R)CS_RY_GET") {
+    field(DESC, "坐标系统Ry读取 (°)")
+    field(SCAN, "1 second")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(CS_RY_GET_INDEX))")
+    field(PREC, "2")
+    field(EGU,  "deg")
+}
+
+record(ai, "$(P)$(R)CS_RZ_GET") {
+    field(DESC, "坐标系统Rz读取 (°)")
+    field(SCAN, "1 second")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(CS_RZ_GET_INDEX))")
+    field(PREC, "2")
+    field(EGU,  "deg")
+}
+
+# 执行记录
+record(bo, "$(P)$(R)CS_SET_EXEC") {
+    field(DESC, "执行坐标系统设置")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),$(CS_SET_EXEC_INDEX)) PP")
+    field(ZNAM, "Idle")
+    field(ONAM, "Execute")
+}
+
+record(bo, "$(P)$(R)CS_ZERO_EXEC") {
+    field(DESC, "当前姿态设为零")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),$(CS_ZERO_EXEC_INDEX)) PP")
+    field(ZNAM, "Idle")
+    field(ONAM, "Execute")
+}
+
+# 轴方向PV
+record(ao, "$(P)$(R)AO_RX_SET") {
+    field(DESC, "轴方向Rx设置 (°)")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),$(AO_RX_SET_INDEX))")
+    field(VAL,  "0.0")
+    field(PREC, "2")
+    field(EGU,  "deg")
+    field(HOPR, "180")
+    field(LOPR, "-180")
+}
+
+record(ao, "$(P)$(R)AO_RY_SET") {
+    field(DESC, "轴方向Ry设置 (°)")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),$(AO_RY_SET_INDEX))")
+    field(VAL,  "0.0")
+    field(PREC, "2")
+    field(EGU,  "deg")
+    field(HOPR, "60")
+    field(LOPR, "-60")
+}
+
+record(ao, "$(P)$(R)AO_RZ_SET") {
+    field(DESC, "轴方向Rz设置 (°)")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),$(AO_RZ_SET_INDEX))")
+    field(VAL,  "0.0")
+    field(PREC, "2")
+    field(EGU,  "deg")
+    field(HOPR, "180")
+    field(LOPR, "-180")
+}
+
+record(ai, "$(P)$(R)AO_RX_GET") {
+    field(DESC, "轴方向Rx读取 (°)")
+    field(SCAN, "1 second")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(AO_RX_GET_INDEX))")
+    field(PREC, "2")
+    field(EGU,  "deg")
+}
+
+record(ai, "$(P)$(R)AO_RY_GET") {
+    field(DESC, "轴方向Ry读取 (°)")
+    field(SCAN, "1 second")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(AO_RY_GET_INDEX))")
+    field(PREC, "2")
+    field(EGU,  "deg")
+}
+
+record(ai, "$(P)$(R)AO_RZ_GET") {
+    field(DESC, "轴方向Rz读取 (°)")
+    field(SCAN, "1 second")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),$(AO_RZ_GET_INDEX))")
+    field(PREC, "2")
+    field(EGU,  "deg")
+}
+
+record(bo, "$(P)$(R)AO_SET_EXEC") {
+    field(DESC, "执行轴方向设置")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),$(AO_SET_EXEC_INDEX)) PP")
+    field(ZNAM, "Idle")
+    field(ONAM, "Execute")
+}
+

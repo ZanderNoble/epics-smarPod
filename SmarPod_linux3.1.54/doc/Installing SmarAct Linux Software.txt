@@ -1,0 +1,356 @@
+INSTALLATION OF SMARACT SOFTWARE FOR LINUX
+(c) SmarAct GmbH, 2023
+==========================================
+
+This document describes the installation of SmarAct software on a
+Linux operating system.
+
+The software contained is compatible with GNU/Linux for the AMD64
+and i386 architectures.
+
+The SmarAct product software for Linux is distributed as a compressed
+tar archive. Decompress it in a directory of your choice:
+
+  tar xf <smaract-software-archive>
+
+The decompressed folder contains the installer script `install.sh`
+and additional resources, which are not installed by the installer.
+
+For installing the Python SDK, additional requirements must be
+met, which are described in `doc/Using SmarAct Python SDKs.pdf`.
+
+
+LICENSE
+=======
+
+When installing the software, the General Software License Agreement
+of SmarAct GmbH (EULA) must be accepted. By passing
+`--license accept` to the installer script, you confirm that you have
+read and agreed to the EULA. The EULA text is included in this software
+package. If it is not included, please contact SmarAct.
+
+3rd-Party Software
+------------------
+
+The installer contains USB drivers from Future Technology Devices
+International Limited (FTDI). The drivers are required for
+communicating with SmarAct hardware via USB and are installed by
+default. If your computer does not communicate with SmarAct hardware
+over a USB connection, the FTDI USB driver is not needed. Disable
+the driver installation by adding `no-usb-drivers` to the component
+list.
+
+The USB drivers redistributed by FTDI contain an unmodified version
+of `libusb`.
+`libusb` is licensed under the LGPL 2.1.
+You can find sources for `libusb` and object files for relinking in
+the `misc/ftdi-sources` subdirectory of the decompressed software archive.
+
+
+LINUX COMPATIBILITY
+===================
+
+Compatibility of CLI applications and libraries
+----------------------------------------------
+
+  |-----------+---------------------+
+  | Distro    | Minimum version     |
+  |-----------+---------------------+
+  | Debian    | 10 "buster"         |
+  | Ubuntu    | 18.04 "bionic" LTS  |
+  | Fedora    | 28                  |
+  | RHEL      | RHEL-8              |
+  | CentOS    | 8                   |
+  | Slackware | 15.0                |
+  | openSUSE  | 15.3                |
+  |-----------+---------------------+
+
+Compatibility of GUI applications
+---------------------------------
+
+Qt-based applications that offer a graphical user interface require a
+newer version of glibc and therefore newer distributions.
+
+  |-----------+-----------------|
+  | Distro    | Minimum version |
+  |-----------+-----------------|
+  | Debian    | 11 "bullseye"   |
+  | Ubuntu    | 20.04 LTS focal |
+  | Fedora    | 32              |
+  | RHEL      | RHEL-9          |
+  | CentOS    | 9               |
+  | Slackware | 15.0            |
+  | openSUSE  | 15.3            |
+  |-----------+-----------------|
+
+General Requirements
+--------------------
+The architecture of your system must be x86 (32 bit) or x86-64
+(64 bit).
+
+If your distribution is not listed above, make sure that the version
+of the GNU C-library glibc on your system is at least 2.27 or greater.
+If you are using forks of the GNU C-library that claim binary
+compatibility with glibc 2.27 or greater like EGLIBC >=2.27 you
+should also be fine.
+For GUI applications your glibc must be version 2.31 or newer.
+Furthermore GUI applications are only available for x86-64 (64 bit).
+
+What to do if your system is older than the minimum version
+-----------------------------------------------------------
+If your system is older than the versions in the table above, it
+probably has a too old glibc library.
+You can verify this by executing the installed SmarAct Software and
+seeing it crash on startup as its dependencies cannot be resolved.
+In this case you have the following options:
+
+1. Upgrade your system. This is the recommended solution.
+2. Compile a recent glibc on your system. You should install the
+   glibc into a non standard directory in order to not mess with the
+   rest of the distribution. This, again, might need some knowledge
+   of the distribution you are using. See how your distribution
+   builds the current glibc and whether the build instructions for
+   glibc have changed in the meantime.
+3. Backport glibc from a newer version of your distribution. The
+   process of doing so is depending on your distribution and
+   requires knowledge about it. Please only use this option of you
+   would consider yourself an advanced user of your distribution.
+
+Options 2 and 3 are expert only options, please only consider them
+when you are sure you know what you are doing.
+We cannot offer support for them.
+
+
+USING THE INSTALLER
+===================
+
+Run the installer by executing the `install.sh` script.
+
+Usage: install.sh [OPTIONS]... [COMPONENTS]
+
+Options:
+  -h | --help            Display a short help text and quit.
+  --uninstall            Uninstall software.
+  --version              Display version and quit.
+  --license v            With `--license accept` you confirm that you have read
+                         the SmarAct Software License Agreement (EULA) and
+                         accept it.
+                         It must be accepted in order to install and use the
+                         software.
+                         The EULA text is included in the software package.
+                         If it is not included, please contact SmarAct.
+  --installdir p         Use path p as the base of the installation.
+  --list-components      List all components available and exit.
+  --arch a               The target architecture a: x86 or x64.
+                         The system architecture is used if omitted.
+  --log-file f           File to write the installation log to.
+  --show-installdir-log  Prints out the collected logs for the installdir and
+                         exits.
+COMPONENTS:              List of comma separated components to install.
+                         The installation of previously selected components can
+                         be revoked by prefixing it with "no-", e.g. "no-comp"
+                         to prevent installation of "comp".
+
+You can select which components you want to install.
+Components need to be separated by commas (don't use spaces!).
+If no components are specified, the default components are used.
+
+Components can be excluded from installation by prefixing a `no-` to
+their name. For example, if the selected components (including the
+default components) install the USB drivers, their installation may
+be suppressed by adding `no-usb-drivers` to the list of components.
+
+The installation path is `/usr/local` if no other path is spcified
+with the `--installdir` option. Libraries are installed in the 'lib'
+sub directory of the chosen installation path.
+
+If you install to a system path (for example, the default install
+dir), you may need higher privileges to execute the installer, e.g.
+
+  sudo install.sh ...
+
+Installer requirements
+----------------------
+
+In order for the installer to run correctly you need:
+
+- A POSIX compatible shell.
+- As well as a POSIX compatible `sed`, `tr`, `date`, `cat`.
+  The installer was tested with the GNU versions of these tools,
+  they work as well.
+- A version of GNU `tar`. Other implementations may work as well
+  but they need to handle `gzip`-compressed archives automatically.
+
+
+INSTALLING SOFTWARE DEVELOPMENT KITS
+====================================
+
+Many SmarAct software bundles contain programming interfaces for
+a SmarAct product. Typically, this includes a SDK (software
+development kit) compatible with the C and C++ languages. In that
+case, the installer contains a component `sdk-c` which can be
+installed with
+
+  install.sh --license accept sdk-c
+
+to the default system installation path, or with
+
+  install.sh --license accept --installdir <instdir> sdk-c
+
+to a specific installation folder `<instdir>`.
+
+Installing SmarAct Python packages
+----------------------------------
+
+There is no component selector for installing Python SDK packages
+with the installer. Instead, the python package can be installed
+directly from the decompressed archive sub folder
+./SDK/Python/packages with the Python package manager `pip`:
+
+  pip install SDK/Python/packages/smaract.<productname>-<version>.zip
+
+where `<productname>` must be replaced by the name of the SmarAct
+product and `<version>` by the version of the package file.
+
+The Python SDK requires the installation of the basic product driver
+libraries. This can be accomplished by installing the default
+components with the installer (see above) or by selecting the
+main library component (whose name depends on the product).
+
+The `--uninstall` option of the installer does not uninstall
+the Python packages. They must be removed with the `pip` tool:
+
+  pip uninstall smaract.<productname>
+
+Please refer to the file `doc/Using SmarAct Python SDKs.pdf` for
+details about installing and using a SmarAct Python SDK.
+
+Uninstalling the software
+-------------------------
+
+Software can be uninstalled using the `-u` option of the installer.
+When taking the command you used for installing the software and
+adding `-u` to it, all software that was installed by the command will
+be removed from your system.
+The license of the installer does not need to be accepted in order to
+uninstall SmarAct software products.
+Given the command
+
+  install.sh --license accept sdk-c
+
+The command
+
+  install.sh -u sdk-c
+
+will remove all installed files again.
+
+
+USING THE INSTALLED LIBRARIES
+=============================
+
+When a program that uses SmarAct software libraries is executing, the
+libraries must be found by the system. As long as all libraries are
+installed to system directories (which is the case when using the
+default install directory), this is not an issue.
+
+If you have installed to a non-standard directory, you must provide
+information where to look for the libraries.
+
+The libraries are installed in the sub folder `lib` of the chosen
+installation directory.
+You have the following options for using the libraries:
+
+- For global installations you can add the path to your libraries to
+  your dynamic linker. For the GNU C library you can configure these
+  paths in `/etc/ld.so.conf`.
+- When you build applications using the libraries link them with a
+  respective `RPATH`.
+- For temporary user installations you can set the `LD_LIBRARY_PATH`
+  environment variable.
+
+
+COMPILING C CODE EXAMPLES
+=========================
+
+If the software bundle contains a C SDK (see above) it usually also
+provides programming examples in `SDK/C/examples`.
+
+If the C SDK was installed to a system directory (e.g. the default
+installation directory), you can compile a C example as follows:
+
+  cd SDK/C/examples
+  gcc -o example example.c -l<apilib>
+
+or a C++ example as follows:
+
+  cd SDK/C/examples
+  g++ -o example example.cpp -l<apilib>
+
+where <apilib> is the software library containing the programming
+interface for the respective product.
+
+If the C SDK was installed to a non-standard directory, you must
+provide paths to the libraries and the C header files to the build
+system. For example, if the SDK was installed to `<sdkdir>`:
+
+  SDKDIR=<sdkdir>
+  cd SDK/C/examples
+  gcc -o example example.c -I${SDKDIR}/include \
+      -L${SDKDIR}/lib \
+      -l<apilib> \
+      -Wl,-rpath,${SDKDIR}/lib
+
+or for a C++ example:
+
+  SDKDIR=<sdkdir>
+  cd SDK/C/examples
+  g++ -o example example.cpp -I${SDKDIR}/include \
+      -L${SDKDIR}/lib \
+      -l<apilib> \
+      -Wl,-rpath,${SDKDIR}/lib
+
+
+SYSTEM CONFIGURATION
+====================
+
+The information in this section is only relevant if your Linux
+software needs to communicate with SmarAct hardware via USB.
+
+When a SmarAct device with a USB interface is connected, it is
+possible that the `ftdi_sio` driver is automatically loaded for that
+device. In this case the application cannot connect to the
+controller. The `ftdi_sio` kernel module must be unloaded or blocked
+from loading before launching your application. The driver can be
+unloaded for individual devices by adding the following
+**udev rule** in a new `.rules` file to `/etc/udev/rules.d/`
+
+  ACTION=="bind", SUBSYSTEM=="usb", DRIVER=="ftdi_sio", ATTRS{idVendor}=="0403", ATTRS{manufacturer}=="SmarAct", RUN+="/bin/sh -c 'printf %k > %S%p/driver/unbind'"
+
+SmarAct software needs write access to the USB port the controller
+is connected to. In order to set read and write permissions
+automatically when the controller is connected, the following udev
+rule can be added
+
+  ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{manufacturer}=="SmarAct", MODE="666"
+
+The rule sets the r/w permission for everyone. If this is not
+acceptable, adjust the MODE argument.
+
+Installing the udev rules file included in the software package
+---------------------------------------------------------------
+
+The above rules are contained in the Linux software package
+as a udev rules file. It can be found in the folder `misc/udev`.
+Uncompress the zip archive `smaract_udev_rules.zip` from that folder
+and copy the file `90-smaract.rules` to the system folder
+`/etc/udev/rules.d`.
+
+In order to activate the new udev rules execute the following
+command in a shell (or reboot your system):
+
+  sudo udevadm control --reload-rules && udevadm trigger
+
+If the SmarAct devices are not visible to the software immediatly
+after activating the rules, power-cycle them once or unplug
+their USB cables and plug them in again so the right drivers are
+loaded.
